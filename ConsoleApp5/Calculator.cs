@@ -36,11 +36,11 @@ namespace ConsoleApp5
             
         }
 
-        public static double Square(double a)
+        public static double Square(int a)
         {
             if (a < 0)
             {
-                throw new ArgumentOutOfRangeException("You cannot get a square root from negative number");
+                throw new ArgumentException("You cannot get a square root from negative number");
             }
             else
             { 

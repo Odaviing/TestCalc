@@ -40,7 +40,7 @@ namespace ConsoleApp5
                     Calculator.Divide(first, second);
                     break;
                 case "5":
-                    Calculator.Square(first);
+                    Calculator.Square(Convert.ToInt32(first));
                     break;
                 default:
                     throw new Exception("Incorrect option was chosen");
