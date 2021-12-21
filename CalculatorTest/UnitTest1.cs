@@ -11,6 +11,7 @@ namespace CalculatorTest
             double a = 5;
             double b = 0;
             string act_mess = "You cannot divide on zero";
+            
             var expected = Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
             Assert.Equal(act_mess, expected.Message);
         }
@@ -21,7 +22,9 @@ namespace CalculatorTest
         [InlineData(0.25, 5, 0.05)]
         public void TestDividePositive(double a, double b, double expected)
         {
-            Assert.Equal(expected, Calculator.Divide(a, b));
+            double actual = Calculator.Divide(a, b);
+            
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -30,7 +33,9 @@ namespace CalculatorTest
         [InlineData(0.575, 0.425, 1)]
         public void TestSumPositive(double a, double b, double expected)
         {
-            Assert.Equal(expected, Calculator.Sum(a, b));
+            double actual = Calculator.Sum(a, b);
+            
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -39,7 +44,9 @@ namespace CalculatorTest
         [InlineData(0.325, 0.024, 0.301)]
         public void TestSubtractPositive(double a, double b, double expected)
         {
-            Assert.Equal(expected, Calculator.Subtract(a, b));
+            double actual = Calculator.Subtract(a, b);
+
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -48,7 +55,9 @@ namespace CalculatorTest
         [InlineData(0.4, 0.4, 0.16000000000000003)]
         public void TestMultPositive(double a, double b, double expected)
         {
-            Assert.Equal(expected, Calculator.Mult(a, b));
+            double actual = Calculator.Mult(a, b);
+
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -56,7 +65,9 @@ namespace CalculatorTest
         [InlineData(1024, 32)]
         public void TestSqrtPositive(int a, double expected)
         {
-            Assert.Equal(expected, Calculator.Square(a));
+            double actual = Calculator.Square(a);
+
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -64,6 +75,7 @@ namespace CalculatorTest
         {
             int a = -1;
             string act_mess = "You cannot get a square root from negative number";
+
             var expected = Assert.Throws<ArgumentException>(() => Calculator.Square(a));
             Assert.Equal(act_mess, expected.Message);
         }
