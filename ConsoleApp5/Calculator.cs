@@ -40,7 +40,7 @@ namespace ConsoleApp5
         {
             if (a < 0)
             {
-                throw new ArgumentException("You cannot get a square root from negative number");
+                throw new ArgumentOutOfRangeException("You cannot get a square root from negative number");
             }
             else
             { 

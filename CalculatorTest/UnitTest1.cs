@@ -8,12 +8,19 @@ namespace CalculatorTest
         [Fact]
         public void TestDivideNegative()
         {
-            double a = 5;
-            double b = 0;
-            string act_mess = "You cannot divide on zero";
+
+            Action act = () => Calculator.Divide(5, 0);
+            Assert.Throws<DivideByZeroException>(act);
             
-            var expected = Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
-            Assert.Equal(act_mess, expected.Message);
+        }
+
+        [Fact]
+        public void TestSqrtNegative()
+        {
+            
+            Action act = () => Calculator.Square(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(act);
+
         }
 
         [Theory]
@@ -70,14 +77,6 @@ namespace CalculatorTest
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void TestSqrtNegative()
-        {
-            int a = -1;
-            string act_mess = "You cannot get a square root from negative number";
-
-            var expected = Assert.Throws<ArgumentException>(() => Calculator.Square(a));
-            Assert.Equal(act_mess, expected.Message);
-        }
+        
     }
 }
